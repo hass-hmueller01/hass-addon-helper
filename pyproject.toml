@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "python-addon-helper"
+version = "0.2.0"
+description = "Helper utilities for Home Assistant Python add-ons"
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [ { name = "hmueller" } ]
+dependencies = []
+
+[project.urls]
+Home = "https://github.com/hass-hmueller01/python-addon-helper"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]

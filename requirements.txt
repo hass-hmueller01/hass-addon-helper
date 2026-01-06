@@ -1,0 +1,3 @@
+pytest>=7.0
+
+# No runtime dependencies required by src/addon/addon.py (uses only Python stdlib).
