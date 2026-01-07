@@ -2,8 +2,9 @@
 Demonstration of behavior for the package.
 
 Usage:
-    python examples/import_demo.py
+    python examples/addon_demo.py
 """
+# pylint: disable=logging-fstring-interpolation, wrong-import-position, broad-except
 import os
 import sys
 
@@ -17,7 +18,7 @@ import addon
 
 try:
     print("\nAccessing addon attributes:")
-    addon.log.info("This is a test log.info() message from "+ os.path.basename(__file__))
+    addon.log.info(f"This is a test log.info() message from {os.path.basename(__file__)}")
     addon.log.info(f"MQTT Host: {addon.mqtt_host}")
     addon.log.info(f"MQTT Port: {addon.mqtt_port}")
 
@@ -32,5 +33,5 @@ try:
     addon.log.warning("Warning log level reached.")
     print("Log level CRITICAL:")
     addon.log.critical("Critical log level reached.")
-except Exception as exc:  # pylint: disable=broad-except
+except Exception as exc:
     print("Access raised:", type(exc).__name__, exc)
