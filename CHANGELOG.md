@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com) and this p
 
 ## [Unreleased]
 ### Added
+- Added Makefile for module installation, tests and examples
 ### Changed
 ### Fixed
 
