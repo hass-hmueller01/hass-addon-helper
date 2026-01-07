@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com) and this p
 
 
 ## [Unreleased]
+### Changed
+- Removed lazy loading as not needed.
 
 ## [0.3.0] - 2026-01-07
 ### Changed

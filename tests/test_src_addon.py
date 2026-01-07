@@ -1,3 +1,6 @@
+"""
+Tests for src/addon.py loading behavior.
+"""
 import importlib
 import logging
 import os
@@ -12,14 +15,8 @@ def _add_src_to_path():
     return src
 
 
-def test_import_package_does_not_load_submodule():
-    _add_src_to_path()
-    addon = importlib.import_module("addon")
-    # package import should not immediately load the implementation module
-    assert "addon.addon" not in sys.modules
-
-
-def test_attribute_access_triggers_module_load(monkeypatch):
+def test_mqtt_attributes(monkeypatch):
+    """Test access to mqtt attributes."""
     _add_src_to_path()
     # Provide environment so the implementation won't sys.exit()
     monkeypatch.setenv("MQTT_HOST", "test-host")
@@ -28,17 +25,30 @@ def test_attribute_access_triggers_module_load(monkeypatch):
     monkeypatch.setenv("MQTT_PASSWORD", "pwd")
 
     addon = importlib.import_module("addon")
-    # Accessing attributes triggers lazy load
     assert addon.mqtt_host == "test-host"
     assert addon.mqtt_port == 1883
     assert addon.mqtt_user == "user"
     assert addon.mqtt_pwd == "pwd"
-    assert isinstance(addon.log, logging.Logger)
     # after access, the implementation module must be present
     assert "addon.addon" in sys.modules
 
 
+def test_log_attributes(monkeypatch):
+    """Test log level constants and log instance."""
+    _add_src_to_path()
+    monkeypatch.setenv("MQTT_HOST", "x")
+    monkeypatch.setenv("MQTT_PORT", "1883")
+    addon = importlib.import_module("addon")
+    assert addon.DEBUG == logging.DEBUG
+    assert addon.INFO == logging.INFO
+    assert addon.WARNING == logging.WARNING
+    assert addon.ERROR == logging.ERROR
+    assert addon.CRITICAL == logging.CRITICAL
+    assert isinstance(addon.log, logging.Logger)
+
+
 def test_missing_attribute_raises(monkeypatch):
+    """Accessing a missing attribute raises AttributeError."""
     _add_src_to_path()
     monkeypatch.setenv("MQTT_HOST", "x")
     monkeypatch.setenv("MQTT_PORT", "1883")
