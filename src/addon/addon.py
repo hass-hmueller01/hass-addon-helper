@@ -23,6 +23,32 @@ import sys
 import importlib.util
 from typing import Any
 
+__all__ = [
+    "CRITICAL",
+    "DEBUG",
+    "ERROR",
+    "INFO",
+    "WARNING",
+    "config",
+    "log",
+    "mqtt_ca_certs",
+    "mqtt_host",
+    "mqtt_port",
+    "mqtt_pwd",
+    "mqtt_user",
+]
+
+# provide logging level constants so callers can use them like `logging.DEBUG`
+CRITICAL = logging.CRITICAL
+DEBUG = logging.DEBUG
+ERROR = logging.ERROR
+INFO = logging.INFO
+WARNING = logging.WARNING
+
+config: dict[str, Any] = {}  # will be initialized later
+log: logging.Logger = None  # type: ignore  # will be initialized later
+mqtt_host, mqtt_port, mqtt_user, mqtt_pwd, mqtt_ca_certs = "", 0, "", "", ""
+
 
 def _setup_root_logger(name: str | None = None) -> logging.Logger:
     """Setup the root logger with a StreamHandler and formatter."""
@@ -98,16 +124,8 @@ def _setup_config() -> dict[str, Any]:
     return _config
 
 
-# provide logging level constants so callers can use them like `logging.DEBUG`
-DEBUG = logging.DEBUG
-INFO = logging.INFO
-WARNING = logging.WARNING
-ERROR = logging.ERROR
-CRITICAL = logging.CRITICAL
-
-# export a named logger for consumers of this module
+# set a named logger for consumers of this module
 log = _setup_root_logger("hass-addon")
 
-# export configuration dictionary and MQTT connection parameters
-mqtt_host, mqtt_port, mqtt_user, mqtt_pwd, mqtt_ca_certs = "", 0, "", "", ""
+# set configuration dictionary and MQTT connection parameters
 config = _setup_config()
