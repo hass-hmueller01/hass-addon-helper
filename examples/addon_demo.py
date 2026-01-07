@@ -3,6 +3,9 @@ Demonstration of behavior for the package.
 
 Usage:
     python examples/addon_demo.py
+
+MIT License
+Copyright (c) 2025-2026 Holger Mueller
 """
 # pylint: disable=logging-fstring-interpolation, wrong-import-position, broad-except
 import os
