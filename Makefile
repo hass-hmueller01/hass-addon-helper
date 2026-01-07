@@ -6,9 +6,11 @@
 # Changelog:
 # - 2026-01-07: Initial revision (hmueller)
 
-.PHONY: all uninstall upgrade test examples
+.PHONY: all install uninstall upgrade test examples
 
-all:
+all: test install
+
+install:
 	@echo "This is a helper Makefile to install the hass-addon-helper."
 	pip install .
 
