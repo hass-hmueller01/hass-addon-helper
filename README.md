@@ -1,5 +1,5 @@
-python-addon-helper
-===================
+hass-addon-helper
+=================
 
 Lightweight helper utilities and a minimal runtime environment intended for
 Python-based Home Assistant add-ons. The package is laid out using the
@@ -80,7 +80,7 @@ Contributing
 ------------
 
 If you want to run or modify the addon's runtime behavior, edit
-[src/addon/addon.py](src/addon/addon.py#L1-L200) and experiment with the demo
+[src/addon/addon.py](src/addon/addon.py) and experiment with the demo
 script. When making changes, keep side-effect free behavior in mind so the
 package remains import-safe for tests and tooling.
 

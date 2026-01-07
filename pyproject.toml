@@ -3,16 +3,16 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "python-addon-helper"
-version = "0.2.0"
-description = "Helper utilities for Home Assistant Python add-ons"
+name = "hass-addon-helper"
+version = "0.3.0"
+description = "Helper utilities for Home Assistant add-ons"
 readme = "README.md"
 requires-python = ">=3.8"
 authors = [ { name = "hmueller01" } ]
 dependencies = []
 
 [project.urls]
-Home = "https://github.com/hass-hmueller01/python-addon-helper"
+Home = "https://github.com/hass-hmueller01/hass-addon-helper"
 
 [tool.setuptools]
 package-dir = {"" = "src"}

@@ -8,7 +8,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com) and this p
 
 ## [Unreleased]
 
-## [0.2.0] - 2026-01-06 
+## [0.3.0] - 2026-01-07
+### Changed
+- Renamed repo and Python module from python-addon-helper to hass-addon-helper.
+
+## [0.2.0] - 2026-01-06
 ### Changed
 - Migrated to python-addon-helper structure.
 
