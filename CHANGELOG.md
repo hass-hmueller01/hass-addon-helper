@@ -7,10 +7,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com) and this p
 
 
 ## [Unreleased]
+
+## [0.5.0] - 2026-01-17
 ### Added
 - Added Makefile for module installation, tests and examples
-### Changed
-### Fixed
+- Added bash mqtt helper (in ./bin folder)
 
 ## [0.4.0] - 2026-01-07
 ### Changed
