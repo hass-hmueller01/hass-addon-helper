@@ -13,7 +13,8 @@ all: install
 
 install:
 	@echo "This is a helper Makefile to install the hass-addon-helper."
-	copy -a ./bin/* /usr/local/bin/
+	mkdir -p /usr/local/bin
+	cp -a ./bin/* /usr/local/bin/
 
 py-install:
 	@echo "This is a helper Makefile to install the hass-addon-helper."
