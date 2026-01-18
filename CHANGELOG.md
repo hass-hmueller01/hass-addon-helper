@@ -7,6 +7,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com) and this p
 
 
 ## [Unreleased]
+### Added
+- Added homasystem_config and homacontrol_config functions
 
 ## [0.5.0] - 2026-01-17
 ### Added
